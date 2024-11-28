@@ -43,7 +43,7 @@ scene.add(light3);
 var audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
 // Load the audio file
-fetch('your-audio-file.mp3')
+fetch('intergalactic-116633.mp3')
   .then(response => response.arrayBuffer())
   .then(data => audioContext.decodeAudioData(data, buffer => {
     var source = audioContext.createBufferSource();
