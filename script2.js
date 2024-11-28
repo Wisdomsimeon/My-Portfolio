@@ -159,7 +159,7 @@ function animate() {
         const width = window.innerWidth;
         const height = window.innerHeight;
         renderer.setSize(width, height);
-        composer.setSize(width, height);
+      
         camera.aspect = width / height;
         camera.updateProjectionMatrix();
       });
