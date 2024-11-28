@@ -37,12 +37,6 @@ scene.add(light3);
 
 
 
-document.addEventListener('click',function(){	
-
-
-	
-
-}
 
 
 
