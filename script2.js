@@ -161,11 +161,11 @@ function animate() {
       });
     
     
-
+document.addEventListener('click',function(){
 
  source.start(0);  // Play immediately
 
-  
+});
 
 
     
