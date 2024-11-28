@@ -170,15 +170,7 @@ function animate() {
 
 
 
-    document.addEventListener('mousemove',function(){
-
-
-        audio.play();
-
-
-
-    });
-
+  
 
 
     
