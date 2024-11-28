@@ -36,8 +36,21 @@ scene.add(light3);
 
 
 
+let source,audioContext;
 
+// Create an audio context
+ audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
+// Load the audio file
+fetch('intergalactic-116633.mp3')
+  .then(response => response.arrayBuffer())
+  .then(data => audioContext.decodeAudioData(data, buffer => {
+    source = audioContext.createBufferSource();
+    source.buffer = buffer;
+    source.loop = true;  // Set to loop
+    source.connect(audioContext.destination);
+   
+  }));
 
 
 
@@ -149,21 +162,8 @@ function animate() {
     
     
 
-// Create an audio context
-var audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
-// Load the audio file
-fetch('intergalactic-116633.mp3')
-  .then(response => response.arrayBuffer())
-  .then(data => audioContext.decodeAudioData(data, buffer => {
-    var source = audioContext.createBufferSource();
-    source.buffer = buffer;
-    source.loop = true;  // Set to loop
-    source.connect(audioContext.destination);
-    source.start(0);  // Play immediately
-  }));
-
-
+ source.start(0);  // Play immediately
 
   
 
