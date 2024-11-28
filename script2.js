@@ -37,12 +37,21 @@ scene.add(light3);
 
 
 
- // JavaScript to play audio on page load
-      
- const audio = document.getElementById('background-audio');
 
 
+// Create an audio context
+var audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
+// Load the audio file
+fetch('your-audio-file.mp3')
+  .then(response => response.arrayBuffer())
+  .then(data => audioContext.decodeAudioData(data, buffer => {
+    var source = audioContext.createBufferSource();
+    source.buffer = buffer;
+    source.loop = true;  // Set to loop
+    source.connect(audioContext.destination);
+    source.start(0);  // Play immediately
+  }));
 
 
 
