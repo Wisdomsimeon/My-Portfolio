@@ -35,10 +35,12 @@ light3.position.set(700,700,750);
 scene.add(light3);
 
 
-const timer = setInterval(run,2000);
+const timer = setInterval(run,1000);
 
 
 function run(){
+
+document.addEventListener('click',function(){	
 // Create an audio context
 var audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
@@ -53,8 +55,9 @@ fetch('intergalactic-116633.mp3')
     source.start(0);  // Play immediately
   }));
 
-clearInterval(timer);
 	
+clearInterval(timer);
+});	
 }
 
 
