@@ -129,7 +129,7 @@ scene.add(point);
 
 window.addEventListener('load',function(){
 
-document.getElementById('intro').style.height = "50%";
+document.getElementById('intro').style.opacity = "1";
 document.getElementById('intro').style.transition = "3s";
 
 
