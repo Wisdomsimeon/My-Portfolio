@@ -72,7 +72,7 @@ loader.load('model.glb',function(gltf){
 model = gltf.scene;
 model.position.set(0,0,0);
 model.scale.setScalar(1);
-scene.add(model);
+
 
 mixer = new THREE.AnimationMixer(model);
 mixer.clipAction(gltf.animations[0]).play();
@@ -97,19 +97,6 @@ scene.add(ground);
 
 
 
-const rgbeLoader = new RGBELoader();
-    rgbeLoader.load('kiara_7_late-afternoon_4k.hdr', (texture) => {
-        texture.mapping = THREE.EquirectangularReflectionMapping; // Set the mapping type
-
-        // Set the environment map in the scene
-        scene.environment = texture;
-        scene.background = texture;
-
-
-	});
-
-
-
 
 
 
@@ -131,11 +118,25 @@ window.addEventListener('load',function(){
 
 document.getElementById('intro').style.opacity = "1";
 document.getElementById('intro').style.transition = "3s";
-
-
+scene.add(model);
+skyLoad();
 
 });
 
+
+function skyLoad(){
+const rgbeLoader = new RGBELoader();
+    rgbeLoader.load('kiara_7_late-afternoon_4k.hdr', (texture) => {
+        texture.mapping = THREE.EquirectangularReflectionMapping; // Set the mapping type
+
+        // Set the environment map in the scene
+        scene.environment = texture;
+        scene.background = texture;
+
+
+	});
+
+}
 
 
 
