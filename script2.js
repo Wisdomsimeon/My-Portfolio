@@ -130,7 +130,7 @@ const rgbeLoader = new RGBELoader();
         texture.mapping = THREE.EquirectangularReflectionMapping; // Set the mapping type
 
         // Set the environment map in the scene
-        scene.environment = texture;
+        //scene.environment = texture;
         scene.background = texture;
 
 
