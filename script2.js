@@ -72,7 +72,7 @@ loader.load('model.glb',function(gltf){
 model = gltf.scene;
 model.position.set(0,0,0);
 model.scale.setScalar(1);
-
+scene.add(model);
 
 mixer = new THREE.AnimationMixer(model);
 mixer.clipAction(gltf.animations[0]).play();
@@ -118,8 +118,8 @@ window.addEventListener('load',function(){
 
 document.getElementById('intro').style.opacity = "1";
 document.getElementById('intro').style.transition = "3s";
-scene.add(model);
-skyLoad();
+
+
 
 });
 
@@ -160,7 +160,8 @@ function animate() {
     delta = clock.getDelta();
     mixer.update(delta);
     
-    
+    skyLoad();
+	
     window.addEventListener('resize', () => {
         const width = window.innerWidth;
         const height = window.innerHeight;
