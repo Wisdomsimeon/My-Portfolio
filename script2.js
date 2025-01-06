@@ -20,17 +20,16 @@ camera.position.set(0,1,2);
 
 
 
-const light = new THREE.DirectionalLight(0xffffff,1.5);
+const light = new THREE.DirectionalLight(0xffffff,3);
 light.position.set(-700,700,-750);
 scene.add(light);
 
 const light2 = new THREE.HemisphereLight(0xffffff,1);
-light2.position.set(-700,700,-750);
 scene.add(light2);
 
 
 
-const light3 = new THREE.DirectionalLight(0xffffff,1.5);
+const light3 = new THREE.DirectionalLight(0xffffff,3);
 light3.position.set(700,700,750);
 scene.add(light3);
 
@@ -124,23 +123,11 @@ document.getElementById('intro').style.transition = "3s";
 });
 
 
-function skyLoad(){
-const rgbeLoader = new RGBELoader();
-    rgbeLoader.load('kiara_7_late-afternoon_4k.hdr', (texture) => {
-        texture.mapping = THREE.EquirectangularReflectionMapping; // Set the mapping type
 
-        // Set the environment map in the scene
-        //scene.environment = texture;
-        scene.background = texture;
-
-
-	});
-
-}
-
-
-
-
+const tex = new THREE.TextureLoader().load("");
+tex.mapping = THREE.EquirectangularReflectionMapping;
+ scene.environment = tex;
+ scene.background = tex;
 
 
 
@@ -149,20 +136,7 @@ const rgbeLoader = new RGBELoader();
 // Resize Handling
 
 
-
-
-
-
-function animate() {
-    requestAnimationFrame(animate);
-        
-    
-    delta = clock.getDelta();
-    mixer.update(delta);
-    
-    skyLoad();
-	
-    window.addEventListener('resize', () => {
+  window.addEventListener('resize', () => {
         const width = window.innerWidth;
         const height = window.innerHeight;
         renderer.setSize(width, height);
@@ -170,6 +144,19 @@ function animate() {
         camera.aspect = width / height;
         camera.updateProjectionMatrix();
       });
+
+
+
+function animate() {
+    requestAnimationFrame(animate);
+        
+    renderer.setSize( window.innerWidth, window.innerHeight);
+    delta = clock.getDelta();
+    mixer.update(delta);
+    
+    skyLoad();
+	
+  
     
     
 document.addEventListener('click',function(){
