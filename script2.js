@@ -124,10 +124,10 @@ document.getElementById('intro').style.transition = "3s";
 
 
 
-const tex = new THREE.TextureLoader().load("");
-tex.mapping = THREE.EquirectangularReflectionMapping;
- scene.environment = tex;
- scene.background = tex;
+const texe = new THREE.TextureLoader().load("rosendal_mountain_midmorning.webp");
+texe.mapping = THREE.EquirectangularReflectionMapping;
+ scene.environment = texe;
+ scene.background = texe;
 
 
 
