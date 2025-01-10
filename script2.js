@@ -154,7 +154,7 @@ function animate() {
     delta = clock.getDelta();
     mixer.update(delta);
     
-    skyLoad();
+  
 	
   
     
