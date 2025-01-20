@@ -89,7 +89,7 @@ tex.repeat.set( 500, 500 );
 
 
 const g = new THREE.PlaneGeometry(1000,1000)
-const m = new THREE.MeshBasicMaterial({map:tex});
+const m = new THREE.MeshStandardMaterial({map:tex});
 const ground = new THREE.Mesh(g,m);
 ground.rotation.x = -0.5 * Math.PI;
 scene.add(ground);
@@ -124,7 +124,7 @@ document.getElementById('intro').style.transition = "3s";
 
 
 
-const texe = new THREE.TextureLoader().load("rosendal_mountain_midmorning.webp");
+const texe = new THREE.TextureLoader().load("");
 texe.mapping = THREE.EquirectangularReflectionMapping;
  scene.environment = texe;
  scene.background = texe;
@@ -150,7 +150,7 @@ texe.mapping = THREE.EquirectangularReflectionMapping;
 function animate() {
     requestAnimationFrame(animate);
         
-    renderer.setSize( window.innerWidth, window.innerHeight);
+   
     delta = clock.getDelta();
     mixer.update(delta);
     
