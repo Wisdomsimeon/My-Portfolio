@@ -9,8 +9,8 @@ const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.inner
 const renderer = new THREE.WebGLRenderer({antialias:true});
 renderer.setSize( window.innerWidth, window.innerHeight);
 //renderer.setClearColor(0x00ffff);
-renderer.toneMapping = THREE.ACESFilmicToneMapping;
-renderer.toneMappingExposure = 1;
+//renderer.toneMapping = THREE.ACESFilmicToneMapping;
+//renderer.toneMappingExposure = 1;
 renderer.outputEncoding = THREE.sRGBEncoding;
 renderer.pixelRatio = window.devicePixelRatio;
 
@@ -124,7 +124,7 @@ document.getElementById('intro').style.transition = "3s";
 
 
 
-const texe = new THREE.TextureLoader().load("");
+const texe = new THREE.TextureLoader().load("rosendal_mountain_midmorning.webp");
 texe.mapping = THREE.EquirectangularReflectionMapping;
  scene.environment = texe;
  scene.background = texe;
