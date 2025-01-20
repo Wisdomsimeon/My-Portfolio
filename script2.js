@@ -75,7 +75,7 @@ scene.add(model);
 
 mixer = new THREE.AnimationMixer(model);
 mixer.clipAction(gltf.animations[0]).play();
-
+mixer.clipAction(gltf.animations[0]).loop = THREE.LoopPingPong;
 
 
 });
