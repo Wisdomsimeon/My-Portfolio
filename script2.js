@@ -100,7 +100,7 @@ const pos = new THREE.Mesh(g,m);
 scene.add(pos);
 
 
-const ge2 = new THREE.BoxeGeometry(1,1,1)
+const ge2 = new THREE.BoxGeometry(1,1,1)
 const ma2 = new THREE.MeshStandardMaterial();
 const pos2 = new THREE.Mesh(ge2,ma2);
 scene.add(pos2);
