@@ -94,7 +94,33 @@ const ground = new THREE.Mesh(g,m);
 ground.rotation.x = -0.5 * Math.PI;
 scene.add(ground);
 
+const ge = new THREE.CubeGeometry(1,1,1)
+const ma = new THREE.MeshStandardMaterial();
+const pos = new THREE.Mesh(g,m);
+scene.add(pos);
 
+
+const ge2 = new THREE.CubeGeometry(1,1,1)
+const ma2 = new THREE.MeshStandardMaterial();
+const pos2 = new THREE.Mesh(ge2,ma2);
+scene.add(pos2);
+
+const ge3 = new THREE.CubeGeometry(1,1,1)
+const ma3 = new THREE.MeshStandardMaterial();
+const pos3 = new THREE.Mesh(ge3,ma3);
+scene.add(pos3);
+
+
+const ge4 = new THREE.CubeGeometry(1,1,1)
+const ma4 = new THREE.MeshStandardMaterial();
+const pos4 = new THREE.Mesh(ge4,ma4);
+scene.add(pos4);
+
+
+pos.position.set(0,0,50);
+pos2.position.set(0,0,-50);
+pos3.position.set(50,0,0);
+pos4.position.set(-50,0,0);
 
 
 
