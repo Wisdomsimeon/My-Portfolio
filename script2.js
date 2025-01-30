@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import { Sky } from 'three/addons/objects/Sky.js';
+import { UltraHDRLoader } from 'three/addons/loaders/UltraHDRLoader.js';
 
 
 const scene = new THREE.Scene();
@@ -21,13 +21,15 @@ camera.position.set(0,1,2);
 
 
 
-const sky = new Sky();
-sky.scale.setScalar( 40000 );
-const sunPosition = new THREE.Vector3(700,200,-700);
+const bkgloader = new UltraHDRLoader();
+loader.load( ``, function ( texture ) {
 
-sky.material.uniforms.sunPosition.value = sunPosition;
+						texture.mapping = THREE.EquirectangularReflectionMapping;
+						texture.needsUpdate = true;
 
-scene.add( sky );
+						scene.background = texture;
+						scene.environment = texture;
+});
 
 
 
