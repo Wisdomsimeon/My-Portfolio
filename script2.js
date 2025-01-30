@@ -22,7 +22,7 @@ camera.position.set(0,1,2);
 
 
 const bkgloader = new UltraHDRLoader();
-loader.load( `spruit_sunrise_4k.hdr.jpg`, function ( texture ) {
+bkgloader.load( `spruit_sunrise_4k.hdr.jpg`, function ( texture ) {
 
 						texture.mapping = THREE.EquirectangularReflectionMapping;
 						texture.needsUpdate = true;
