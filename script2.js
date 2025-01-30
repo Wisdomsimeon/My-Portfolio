@@ -23,10 +23,7 @@ camera.position.set(0,1,2);
 
 const sky = new Sky();
 sky.scale.setScalar( 40000 );
-
-const phi = new THREE.MathUtils.degToRad( 90 );
-const theta = new THREE.MathUtils.degToRad( 180 );
-const sunPosition = new THREE.Vector3().setFromSphericalCoords( 1, phi, theta );
+const sunPosition = new THREE.Vector3(700,200,-700);
 
 sky.material.uniforms.sunPosition.value = sunPosition;
 
