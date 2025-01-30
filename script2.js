@@ -4,7 +4,7 @@ import { Sky } from 'three/addons/objects/Sky.js';
 
 
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.01, 10000 );
+const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.01, 450000 );
 
 const renderer = new THREE.WebGLRenderer({antialias:true});
 renderer.setSize( window.innerWidth, window.innerHeight);
@@ -22,7 +22,7 @@ camera.position.set(0,1,2);
 
 
 const sky = new Sky();
-sky.scale.setScalar( 450000 );
+sky.scale.setScalar( 40000 );
 
 const phi = new THREE.MathUtils.degToRad( 90 );
 const theta = new THREE.MathUtils.degToRad( 180 );
