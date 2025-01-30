@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import { RGBELoader } from 'three/addons/loaders/RGBELoader.js';
+import { Sky } from 'three/addons/objects/Sky.js';
 
 
 const scene = new THREE.Scene();
@@ -17,6 +17,22 @@ renderer.pixelRatio = window.devicePixelRatio;
 document.body.appendChild( renderer.domElement );
 
 camera.position.set(0,1,2);
+
+
+
+
+const sky = new Sky();
+sky.scale.setScalar( 450000 );
+
+const phi = MathUtils.degToRad( 90 );
+const theta = MathUtils.degToRad( 180 );
+const sunPosition = new Vector3().setFromSphericalCoords( 1, phi, theta );
+
+sky.material.uniforms.sunPosition.value = sunPosition;
+
+scene.add( sky );
+
+
 
 
 
@@ -94,33 +110,6 @@ const ground = new THREE.Mesh(g,m);
 ground.rotation.x = -0.5 * Math.PI;
 scene.add(ground);
 
-const ge = new THREE.BoxGeometry(1,1,1)
-const ma = new THREE.MeshStandardMaterial();
-const pos = new THREE.Mesh(g,m);
-scene.add(pos);
-
-
-const ge2 = new THREE.BoxGeometry(1,1,1)
-const ma2 = new THREE.MeshStandardMaterial();
-const pos2 = new THREE.Mesh(ge2,ma2);
-scene.add(pos2);
-
-const ge3 = new THREE.BoxGeometry(1,1,1)
-const ma3 = new THREE.MeshStandardMaterial();
-const pos3 = new THREE.Mesh(ge3,ma3);
-scene.add(pos3);
-
-
-const ge4 = new THREE.BoxGeometry(1,1,1)
-const ma4 = new THREE.MeshStandardMaterial();
-const pos4 = new THREE.Mesh(ge4,ma4);
-scene.add(pos4);
-
-
-pos.position.set(0,0,50);
-pos2.position.set(0,0,-50);
-pos3.position.set(50,0,0);
-pos4.position.set(-50,0,0);
 
 
 
@@ -149,11 +138,6 @@ document.getElementById('intro').style.transition = "3s";
 });
 
 
-
-const texe = new THREE.TextureLoader().load("rosendal_mountain_midmorning.webp");
-texe.mapping = THREE.EquirectangularReflectionMapping;
- scene.environment = texe;
- scene.background = texe;
 
 
 
